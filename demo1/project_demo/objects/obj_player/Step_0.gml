@@ -65,14 +65,16 @@ if (l5E44E7D3_0)
 /// @DnDAction : YoYo Games.Common.Execute_Code
 /// @DnDVersion : 1
 /// @DnDHash : 4D91B480
-/// @DnDArgument : "code" "// Move around$(13_10)image_angle = point_direction(x, y, mouse_x, mouse_y)$(13_10)$(13_10)// Shoot$(13_10)if (mouse_check_button(mb_left) && (cooldown < 1)) {$(13_10)	instance_create_layer(x, y, "BulletsLayer", obj_bullet)$(13_10)	cooldown = 3$(13_10)}$(13_10)$(13_10)cooldown = cooldown - 1$(13_10)"
+/// @DnDArgument : "code" "// Move around$(13_10)image_angle = point_direction(x, y, mouse_x, mouse_y)$(13_10)$(13_10)// Shoot$(13_10)if (mouse_check_button(mb_left) && (cooldown < 1)) {$(13_10)	instance_create_layer(x, y, "Layer_Bullet", obj_bullet)$(13_10)	cooldown = 3$(13_10)	audio_sound_pitch(snd_death, random_range(0.7, 1.2))$(13_10)	audio_play_sound(snd_death, 0, 0)$(13_10)}$(13_10)$(13_10)cooldown = cooldown - 1$(13_10)"
 // Move around
 image_angle = point_direction(x, y, mouse_x, mouse_y)
 
 // Shoot
 if (mouse_check_button(mb_left) && (cooldown < 1)) {
-	instance_create_layer(x, y, "BulletsLayer", obj_bullet)
+	instance_create_layer(x, y, "Layer_Bullet", obj_bullet)
 	cooldown = 3
+	audio_sound_pitch(snd_death, random_range(0.7, 1.2))
+	audio_play_sound(snd_death, 0, 0)
 }
 
 cooldown = cooldown - 1
